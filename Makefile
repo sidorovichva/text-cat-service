@@ -1,3 +1,5 @@
+tag ?= latest
+
 update_poetry_lock_file:
 	poetry add $(pip freeze)
 
