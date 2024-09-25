@@ -17,3 +17,7 @@ API: /classifier/zero_shot
         - transformer_name: string (optional, default = valhalla)
     Returns:
         - category: string (Categories are defined in src/python/enum/Category.py)
+
+TODO:
+    - Integration with Qdrant DB
+    - Vectorization of text
