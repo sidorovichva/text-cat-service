@@ -15,3 +15,9 @@ build_image_with_tag_no_cache:
 
 run_container:
 	docker run --name text-cat-service-container -p 8077:8077 -d text-cat-service:$(tag)
+
+build:
+	docker-compose --profile dev build
+
+up:
+	docker-compose --profile dev up

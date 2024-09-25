@@ -1,0 +1,36 @@
+services:
+
+  api:
+    build:
+      context: .
+    environment:
+      - ENV=dev
+      - DATABASE=projects
+      - HOST=mysql
+      - PORT=6333
+      - USERNAME=adam
+      - PASSWORD=123
+    ports:
+      - "8077:8077"
+    networks:
+      - zero-shot-network
+    depends_on:
+      - qdrant
+    profiles:
+      - dev
+
+  qdrant:
+    image: "qdrant/qdrant"
+    volumes:
+      - qdrant_storage:/var/lib/mysql:rw
+    networks:
+      - zero-shot-network
+    profiles:
+      - dev
+
+networks:
+  zero-shot-network:
+    driver: bridge
+
+volumes:
+  qdrant_storage:
