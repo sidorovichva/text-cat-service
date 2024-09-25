@@ -1,5 +1,3 @@
-from typing import Coroutine, Any
-
 from fastapi import APIRouter
 
 from src.python.enum.TransformerName import TransformerName
