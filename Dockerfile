@@ -13,6 +13,8 @@ RUN poetry install --only main
 
 COPY . /app
 
+RUN poetry run pytest
+
 EXPOSE 8077
 
 CMD ["poetry", "run", "uvicorn", "src.python.main:app", "--host", "0.0.0.0", "--port", "8077"]
