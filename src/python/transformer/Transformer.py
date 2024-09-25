@@ -30,6 +30,10 @@ class Transformer(ABC):
     def classify(self, text: str) -> str:
         pass
 
+    @abstractmethod
+    def encode(self, text: str) -> list[int]:
+        pass
+
     def path(self) -> str:
         return f"src/resources/transformers/{self.folder}"
 

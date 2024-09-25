@@ -50,3 +50,7 @@ class ValhallaTransformer(Transformer):
         labels = [c for c in Category]
 
         return labels[predicted_label]
+
+    def encode(self, text: str) -> list[int]:
+        tokenizer = AutoTokenizer.from_pretrained(self.tokenizer_path())
+        return tokenizer.encode(text)
