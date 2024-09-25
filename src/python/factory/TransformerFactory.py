@@ -1,3 +1,5 @@
+import logging
+
 from src.python.enum.TransformerName import TransformerName
 from src.python.transformer.Transformer import Transformer
 from src.python.transformer.ValhallaTransformer import ValhallaTransformer
@@ -11,4 +13,6 @@ class TransformerFactory:
             case TransformerName.valhalla:
                 return ValhallaTransformer()
             case _:
-                raise ValueError(f"Unknown transformer name: {transformer_name}")
+                message: str = f"Unknown transformer name: {transformer_name}"
+                logging.error(message)
+                raise ValueError(message)

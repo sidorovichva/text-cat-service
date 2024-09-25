@@ -1,3 +1,5 @@
+import logging
+
 from fastapi import APIRouter
 
 from src.python.enum.TransformerName import TransformerName
@@ -12,6 +14,8 @@ async def zero_shot_classifier(
         text: str,
         transformer_name: TransformerName = TransformerName.valhalla
 ) -> str:
+
+    logging.info(f"Classifying text: {text}")
 
     transformer = TransformerFactory.get_transformer(transformer_name=transformer_name)
 

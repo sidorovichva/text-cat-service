@@ -1,3 +1,5 @@
+import logging
+
 from src.python.transformer.Transformer import Transformer
 
 
@@ -13,6 +15,8 @@ class ZeroShotService:
     async def classify(self, text: str) -> str:
 
         await self.transformer.download()
+
+        logging.info(f"Classifying text using {self.transformer.short_name}")
 
         category: str = self.transformer.classify(text)
 

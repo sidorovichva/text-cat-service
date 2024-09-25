@@ -1,3 +1,4 @@
+import logging
 import os
 
 import torch
@@ -24,6 +25,8 @@ class ValhallaTransformer(Transformer):
                 or Utils.is_directory_empty(self.model_path())
                 or Utils.is_directory_empty(self.tokenizer_path())
         ):
+            logging.info(f"Downloading {self.short_name} transformer")
+
             tokenizer = AutoTokenizer.from_pretrained(self.name)
             tokenizer.save_pretrained(self.tokenizer_path())
 
