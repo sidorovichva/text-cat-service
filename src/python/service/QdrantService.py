@@ -14,9 +14,10 @@ class QdrantService:
         client = QdrantClient.get_client()
         max_size: int = 100
         length: int = len(vector)
+        metadata_dict: list[dict[str, str]] = [{"source": v} for v in vector]
         client.add(
             collection_name=collection,
             documents=vector,
-            metadata=metadata.to_dict(),
+            metadata=metadata_dict,
             ids=[max_size, length]
         )
